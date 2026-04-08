@@ -19,7 +19,8 @@ PowerShell scripts to purge temporary files and system bloat.
 Advanced cleanup of the WinSxS folder to remove obsolete Windows updates and service pack files.
 
 ### 4. System Footprint Reduction
-* **Hibernation Disabled:** Reclaims space equivalent to the installed RAM.
+* **Hibernation Disabled:**
+* * **Command:**`powercfg -h off`. Reclaims space equivalent to the installed RAM.
 * **Pagefile Optimization:** Static 4GB limit to prevent dynamic growth while maintaining system stability for development tasks.
 
 ### 5. Virtual Memory (Paging File) Optimization
