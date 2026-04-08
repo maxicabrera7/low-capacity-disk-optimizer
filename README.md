@@ -1,29 +1,29 @@
-# low-capacity-disk-optimizer
+#low-capacity-disk-optimizer
 Ways to save space with a small hard drive
-# Windows Storage Optimization Toolkit
+#Windows Storage Optimization Toolkit
 
 A collection of PowerShell scripts and manual procedures to maintain a high-performance development environment on storage-constrained systems (e.g., 120GB SSDs).
 
-## 🚀 Optimization Strategies
+##🚀 Optimization Strategies
 
-### 1. Transparent File Compression
+###1. Transparent File Compression
 I use Windows `compact` with the `LZX` algorithm. It provides the highest compression ratio for static files and applications without significant CPU overhead.
 * **Target:** Heavy applications and game folders.
 * **Command:** `compact /c /s /i /exe:lzx "PATH_TO_FOLDER\*"`
 
-### 2. Automated Cleanup
+###2. Automated Cleanup
 PowerShell scripts to purge temporary files and system bloat.
 * **Targets:** `%TEMP%` and `C:\Windows\Temp`.
 
-### 3. Component Store Maintenance (DISM)
+###3. Component Store Maintenance (DISM)
 Advanced cleanup of the WinSxS folder to remove obsolete Windows updates and service pack files.
 
-### 4. System Footprint Reduction
+###4. System Footprint Reduction
 * **Hibernation Disabled:**
 * * **Command:**`powercfg -h off`. Reclaims space equivalent to the installed RAM.
 * **Pagefile Optimization:** Static 4GB limit to prevent dynamic growth while maintaining system stability for development tasks.
 
-### 5. Virtual Memory (Paging File) Optimization
+###5. Virtual Memory (Paging File) Optimization
 ⚠️ WARNING: Only perform this tweak if you have 16GB of RAM or more. Reducing the pagefile on systems with low physical memory will cause system instability, application crashes, and BSODs.
 
 Technical Logic:
