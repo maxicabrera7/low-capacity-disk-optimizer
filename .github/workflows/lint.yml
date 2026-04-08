@@ -5,8 +5,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4 # Actualizado a v4
+        uses: actions/checkout@v4
       - name: Lint Markdown
-        uses: DavidAnson/markdownlint-cli2-action@v16 # Usa la versión más reciente
+        uses: DavidAnson/markdownlint-cli2-action@v16
         with:
           globs: "**/*.md"
