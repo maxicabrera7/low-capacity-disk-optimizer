@@ -21,3 +21,32 @@ Advanced cleanup of the WinSxS folder to remove obsolete Windows updates and ser
 ### 4. System Footprint Reduction
 * **Hibernation Disabled:** Reclaims space equivalent to the installed RAM.
 * **Pagefile Optimization:** Static 4GB limit to prevent dynamic growth while maintaining system stability for development tasks.
+
+### 5. Virtual Memory (Paging File) Optimization
+⚠️ WARNING: Only perform this tweak if you have 16GB of RAM or more. Reducing the pagefile on systems with low physical memory will cause system instability, application crashes, and BSODs.
+
+Technical Logic:
+Windows dynamically manages the paging file size, which leads to two problems on small, near-full SSDs:
+
+Disk Fragmentation: Constant resizing creates fragmented space.
+
+Unexpected Storage Depletion: The pagefile can grow exponentially during heavy workloads, leaving the drive with 0 bytes of free space.
+
+The Tweak:
+Setting a static size of 4096MB (4GB) ensures a safety net for applications that require a paging file to function, while reclaiming several gigabytes of storage and preventing dynamic growth overhead.
+
+Manual Procedure:
+
+Press Win + R, type sysdm.cpl, and hit Enter.
+
+Go to Advanced > Performance (Settings) > Advanced > Virtual Memory (Change).
+
+Uncheck "Automatically manage paging file size for all drives".
+
+Select the C: drive, choose Custom size, and set:
+
+Initial size (MB): 4096
+
+Maximum size (MB): 4096
+
+Click Set, then OK, and Restart the PC.
